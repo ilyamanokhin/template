@@ -1,17 +1,18 @@
-mixin font(title, classFont, size, text)
+mixin font(title, classFont)
     h2(class=classFont)=title
-    p(class=classFont)=size
-        span=text
-mixin Fonts()
     each val in [96, 72, 60, 48, 36]
-        +font('PT Sans Regular','ptsans Regular '+val, val, "The five boxing wizards")
-        +font('PT Sans Italic','ptsans', val, "The five boxing wizards")
-        //- +font('PT Sans Bold','ptsans', val, "The five boxing wizards")
-        //- +font('PT Sans Bold Italic','ptsans', val, "The five boxing wizards")
-        //- +font('PT Sans Caption Regular','ptsans', val, "The five boxing wizards")
-        //- +font('PT Sans Caption Bold','ptsans', val, "The five boxing wizards")
-        //- +font('PT Sans Narrow Regular','ptsans', val, "The five boxing wizards")
-        //- +font('PT Sans Narrow Bold','ptsans', val, "The five boxing wizards")
+        p(class=classFont class='size'+val class='samplebox')=val
+            span The five boxing wizards
+
+mixin FontsPTSans()
+    +font('PT Sans Regular','PTSans Regular')
+    +font('PT Sans Bold','PTSans Bold')
+    +font('PT Sans Bold Italic','PTSans BoldItalic')
+    +font('PT Sans Caption Regular','PTSans CaptionRegular')
+    +font('PT Sans Caption Bold','PTSans CaptionBold')
+    +font('PT Sans Narrow Regular','PTSans NarrowRegular')
+    +font('PT Sans Narrow Bold','PTSans NarrowBold')
+
 section.font
     .wrapper
-        +Fonts
+        +FontsPTSans
